@@ -1,0 +1,253 @@
+/* menu css starts from here */
+*{
+    padding: 0;
+    margin: 0;
+}
+.menumain{
+    background-color: #bfd8bd;
+    width: 60%;
+    height: 150vh;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    margin-left: 40vh;
+}
+.navbarmenu{
+    display: flex;
+}
+.left-arrow-button {
+    width: 15vh;
+    height: 15vh;
+    margin-left: 5vh;
+    border: none;
+    background-color: #bfd8bd;
+}
+.left-arrow-button img{
+    height: 10vh;
+    margin-left: -1vh;
+    margin-top:1vh;
+}
+.leftmenuicon{
+    height: 10vh;
+    margin-left: 8vh;
+    mix-blend-mode: color-burn;
+    margin-top: 2vh;
+    background-color: #BD7B7B;
+}
+.rightmenuicon{
+    margin-left: 71vh;
+    height: 10vh;
+    mix-blend-mode: color-burn;
+    margin-top: 2vh;
+    background-color: #BD7B7B;
+    
+}
+.search img
+{
+    position: absolute;
+    height: 5vh;
+    left: 130vh;
+    z-index: 1;
+    top: 17vh;
+}
+.searchinput
+{
+    border: none;
+    margin-left: 20vh;
+    font-size: 3vh;
+    background-color: #E2E2E2;
+    height: 7vh;
+    padding-left: 5vh;
+    width: 75vh;
+    border-radius: 35px;
+} 
+.searchicon{
+    mix-blend-mode:color-burn;
+    margin-top: 1vh;
+}
+.foodicon{
+    display: flex;
+    width: 250px;
+    overflow: scroll;
+}
+.iconfood{
+    width: 13%;
+    margin-left: 3vh;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+    gap: 15vh;
+    margin-top: 5vh;
+}
+.stater1
+{
+    background-color: #FED0D2;
+    margin-left: 7vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.stater2
+{
+    background-color: #f8edeb;
+    margin-left: 10vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.stater3
+{
+    background-color: #FED0D2;
+    margin-left: 10vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.staternamedrink
+{
+    margin-top: 2vh;
+    margin-left: 10vh;
+}
+.imagecut1
+{
+    height: 21vh;
+    border-radius: 50%;
+    margin-left: 20%;
+}
+.food-item-div1, .food-item-div2
+{
+    display: flex;
+}
+.stater-1
+{
+    background-color: #f4e5e2;
+    margin-left: 7vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.stater-2
+{
+    background-color: #f9c2c4;
+    margin-left: 10vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.stater-3
+{
+    background-color: #f4e5e2;
+    margin-left: 10vh;
+    margin-top: 5vh;
+    width: 30vh;
+    border-radius: 5vh;
+    height: 40vh;
+}
+.imagecut2
+{
+    height: 20vh;
+    border-radius: 50%;
+    margin-left: 5vh;
+    margin-top: 2vh;
+}
+.imagecut3
+{
+    height: 19vh;
+    rotate: 270deg;
+    margin-left: 4vh;
+    margin-top: 2vh;
+
+}
+.food-item-div1 button
+{
+    background-color: #bfd8bd;
+    margin-left: 7vh;
+    height: 5vh;
+    width: 15vh;
+    border-radius: 35px;
+    margin-top: 4vh;
+}
+.food-item-div2 button
+{
+    background-color: #bfd8bd;
+    margin-left: 7vh;
+    height: 5vh;
+    width: 15vh;
+    border-radius: 35px;
+    margin-top: 4vh;
+}
+.statername
+{
+    margin-left: 9vh;
+    height: 5vh;
+    width: 15vh;
+}
+.imagecut-2
+{
+    height: 23vh;
+    border-radius: 50%;
+    margin-top: 3vh;
+    margin-left: 3vh;
+}
+.imagecut-3
+{
+    height: 23vh;
+    border-radius: 50%;
+    margin-left: 3vh;
+    margin-top: 2vh;
+}
+.imagecut4
+{
+    height: 22vh;
+    border-radius: 50%;
+    margin-left: 4vh;
+    margin-top: 2vh;
+}
+.buttondal
+{
+    position: relative;
+    bottom: 3vh;
+}
+.buttondrink
+{
+    position: relative;
+    bottom: 1vh;
+}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .food-item-div1, .food-item-div2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stater1, .stater2, .stater3, .stater-1, .stater-2, .stater-3 {
+        margin: 10px 0;
+    }
+}
+.buttencss1{
+    background-color: #F4E5E2;
+    margin-left: 50vh;
+    height: 5vh;
+    width: 20vh;
+    border-radius: 35px;
+    margin-top: 4vh;
+}
+.flex{
+    gap: 10vh;
+    display: flex;
+    margin-top: 4vh;
+}
+.selectedTableInfo
+{
+    background-color: #bfd8bd;
+    color: black;
+    font-size: 3vh;
+    height: 4vh;
+    position: relative;
+    top: 6vh;
+    left: 35vh;
+}
