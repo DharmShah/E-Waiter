@@ -21,44 +21,74 @@
         <hr color="black">
         <div class="showingtable">
             <h2>INVOICE</h2>
-            <?php  
+            <div class="table_print">
+            <?php
+            // Connect to the database
+            $servername = "localhost";
+            $username = "root"; // Your MySQL username
+            $password = ""; // Your MySQL password
+            $dbname = "dharmshah";
 
-            $servername="localhost";
-            $username = "root";
-            $password = "";
-            $db = "dharmshah";
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-            $conn = new mysqli($servername,$username,$password,$db);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-            $select_query = "SELECT * FROM orders";
-            $select_data = mysqli_query($conn,$select_query);
+            // Retrieve data from orders table
+            $sql = "SELECT dish, quantity FROM orders";
+            $result = $conn->query($sql);
+
+            // Initialize variables for total calculation
             $total = 0;
-            ?>
-            <table class="table">
-                <tr>
-                    <td>ID</td>
-                    <td>Dish</td>
-                    <td>qty</td>
-                    <!-- <td>price</td> -->
-                    <td>Sub Total</td>
-                </tr>
+
+            if ($result->num_rows > 0) {
+                // Output data in table format
+                echo "<table border='1'>";
+                echo "<tr><th>Dish</th><th>Quantity</th><th>Rate</th><th>Subtotal</th></tr>";
                 
-                <?php while($row=mysqli_fetch_array($select_data)){?>
-                    <?php if($row['quantity'] > 0) { ?>
-                    <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['dish']; ?></td>
-                        <td><?php echo $row['quantity']; ?></td>
-                        <td><?php echo $row['quantity'] * 5; ?></td>
-                        <?php $total += $row['quantity'] * 5;?> 
-                    </tr>
-    <?php } ?>
-                <?php } ?>
-            </table>
-            <div class="totalkadiv">
-                <h3 class="totalname">Total</h3>
-                <h3 colspan='6' class="total"><?php echo $total ; ?></h3>
-            </div>            
+                // Loop through each row
+                while($row = $result->fetch_assoc()) {
+                    $dish_name = $row["dish"];
+                    $quantity = $row["quantity"];
+                    
+                    // Skip if quantity is less than or equal to 0
+                    if ($quantity <= 0) {
+                        continue;
+                    }
+                    
+                    // Retrieve rate from dish_rate table
+                    $rate_sql = "SELECT rate FROM dish_rate WHERE dish='$dish_name'";
+                    $rate_result = $conn->query($rate_sql);
+                    
+                    if ($rate_result->num_rows > 0) {
+                        $rate_row = $rate_result->fetch_assoc();
+                        $rate = $rate_row["rate"];
+                        
+                        // Calculate subtotal for each item
+                        $subtotal = $quantity * $rate;
+                        $total += $subtotal;
+                        
+                        // Output the item details in table row format
+                        echo "<tr><td>$dish_name</td><td>$quantity</td><td>$rate</td><td>$subtotal</td></tr>";
+                    } else {
+                        echo "Rate not found for dish: $dish_name <br>";
+                    }
+                }
+                
+                // Output total bill amount
+                echo "<tr><td colspan='3'>Total Bill</td><td>$total</td></tr>";
+                echo "</table>";
+            } else {
+                echo "0 results";
+            }
+
+            // Close connection
+            $conn->close();
+            ?>
+            </div>
         </div>
         <div class="cleartable">
             <form action="cleartable.php" method="post" ><input type="submit" name="cleartable" value="Clear Table"></form>

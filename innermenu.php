@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./static/innermenu.css">
 </head>
 <body>
-
     <div class="maindiv">
         <nav class="nav-bar">
             <form action="./menu.php"><button class="left-arrow-button"><img src="./static/left-arrow.png" class="leftarrow"></button></form>
@@ -35,7 +34,7 @@
                     <div class="flex">
                         <div class="statermenu">
                             <div class="imagegaping"><img src="./static/starter/manchaow-soup.jpeg" class="panner"></div>
-                            <h4 class="dishname" name="manchaow">Manchaow Soup</h4>
+                            <h4 class="dishname" name="manchaow">ManchaowSoup</h4>
                             <h4 class="pannerrate">₹120</h4>
                             <div class="incdec">
                                 <button onclick="decrement(1)" class="decrementButton">-</button>
@@ -46,7 +45,7 @@
 
                         <div class="statermenu">
                             <img src="./static/starter/tomato-soup.jpeg" class="panner">
-                            <h4 class="dishname" name="tomato" >Tomato Soup </h4>
+                            <h4 class="dishname" name="tomato" >TomatoSoup</h4>
                             <h4 class="pannerrate">₹110</h4>
                             <div class="incdec">
                                 <button onclick="decrement(2)" class="decrementButton">-</button>
@@ -70,7 +69,7 @@
 
                         <div class="statermenu">
                             <img src="./static/starter/veg-manchurian.jpg" class="panner">
-                            <h4 class="dishname" name="manchurian" >Veg Manchurian</h4>
+                            <h4 class="dishname" name="manchurian" >Manchuriya</h4>
                             <h4 class="pannerrate">₹220</h4>
                             <div class="incdec">
                                 <button onclick="decrement(4)" class="decrementButton">-</button>
@@ -83,7 +82,7 @@
                     <div class="flex">
                         <div class="statermenu">
                             <img src="./static/starter/panner-chapp.jpg" class="panner">
-                            <h4 class="dishname" name="pannerchapp" >Panner Chapp </h4>
+                            <h4 class="dishname" name="pannerchapp" >PannerChapp </h4>
                             <h4 class="pannerrate">₹150</h4>
                             <div class="incdec">
                                 <button onclick="decrement(5)" class="decrementButton">-</button>
@@ -138,7 +137,7 @@
 
                             <div class="statermenu">
                                 <img src="./static/desert/sundae_Icecream.jpg" class="panner">
-                                <h4 class="dishname">Ice Cream</h4>
+                                <h4 class="dishname">IceCream</h4>
                                 <h4 class="pannerrate">₹270</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(2)" class="decrementButton">-</button>
@@ -221,7 +220,7 @@
                         <div class="flex">
                             <div class="statermenu">
                                 <div class="imagegaping"><img src="./static/Drinks/butter-milk.jpg" class="panner"></div>
-                                <h4 class="dishname">Butter Milk</h4>
+                                <h4 class="dishname">ButterMilk</h4>
                                 <h4 class="pannerrate">₹40</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(1)" class="decrementButton">-</button>
@@ -245,7 +244,7 @@
                         <div class="flex">
                             <div class="statermenu">
                                 <img src="./static/Drinks/coke.png " class="panner">
-                                <h4 class="dishname">Coca Cola</h4>
+                                <h4 class="dishname">CocaCola</h4>
                                 <h4 class="pannerrate">₹120</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(3)" class="decrementButton">-</button>
@@ -256,7 +255,7 @@
 
                             <div class="statermenu">
                                 <img src="./static/Drinks/coldcoco.jpg" class="panner">
-                                <h4 class="dishname">Cold Coco</h4>
+                                <h4 class="dishname">ColdCoco</h4>
                                 <h4 class="pannerrate">₹120</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(4)" class="decrementButton">-</button>
@@ -316,7 +315,7 @@
                     <div class="statermenu">
                         <div class="imagegaping"><img src="./static/rice/rice.jpg" class="panner"></div>
                         <h4 class="dishname">Rice</h4>
-                        <h4 class="pannerrate">₹250</h4>
+                        <h4 class="pannerrate">₹120</h4>
                         <div class="incdec">
                             <button onclick="decrement(1)" class="decrementButton">-</button>
                             <span id="value1" class="display">0</span>
@@ -326,8 +325,8 @@
 
                     <div class="statermenu">
                         <img src="./static/rice/jeera-rice.jpg" class="panner">
-                        <h4 class="dishname">Jeera Rice</h4>
-                        <h4 class="pannerrate">₹270</h4>
+                        <h4 class="dishname">JeeraRice</h4>
+                        <h4 class="pannerrate">₹150</h4>
                         <div class="incdec">
                             <button onclick="decrement(2)" class="decrementButton">-</button>
                             <span id="value2" class="display">0</span>
@@ -340,7 +339,7 @@
                     <div class="statermenu">
                         <img src="./static/rice/pulav.jpg" class="panner">
                         <h4 class="dishname">Pulav</h4>
-                        <h4 class="pannerrate">₹280</h4>
+                        <h4 class="pannerrate">₹180</h4>
                         <div class="incdec">
                             <button onclick="decrement(3)" class="decrementButton">-</button>
                             <span id="value3" class="display">0</span>
@@ -350,8 +349,8 @@
 
                     <div class="statermenu">
                         <img src="./static/rice/fried-rice.jpg" class="panner">
-                        <h4 class="dishname">Veg Fried Rice</h4>
-                        <h4 class="pannerrate">₹230</h4>
+                        <h4 class="dishname">VegFriedRice</h4>
+                        <h4 class="pannerrate">160</h4>
                         <div class="incdec">
                             <button onclick="decrement(4)" class="decrementButton">-</button>
                             <span id="value4" class="display">0</span>
@@ -363,8 +362,8 @@
                 <div class="flex">
                     <div class="statermenu">
                         <img src="./static/rice/dal_fry.jpg" class="panner">
-                        <h4 class="dishname">Dal Fry</h4>
-                        <h4 class="pannerrate">₹220</h4>
+                        <h4 class="dishname">DalFry</h4>
+                        <h4 class="pannerrate">₹210</h4>
                         <div class="incdec">
                             <button onclick="decrement(5)" class="decrementButton">-</button>
                             <span id="value5" class="display">0</span>
@@ -374,8 +373,8 @@
 
                     <div class="statermenu">
                         <img src="./static/rice/dal-makhni.jpg" class="panner">
-                        <h4 class="dishname">Dal Makhni</h4>
-                        <h4 class="pannerrate">₹310</h4>
+                        <h4 class="dishname">DalMakhni</h4>
+                        <h4 class="pannerrate">₹210</h4>
                         <div class="incdec">
                             <button onclick="decrement(6)" class="decrementButton">-</button>
                             <span id="value6" class="display">0</span>
@@ -409,8 +408,8 @@
                     <div class="flex">
                         <div class="statermenu">
                             <div class="imagegaping"><img src="./static/roti/butter_roti.jpg" class="panner"></div>
-                            <h4 class="dishname">Butter Roti</h4>
-                            <h4 class="pannerrate">₹250</h4>
+                            <h4 class="dishname">ButterRoti</h4>
+                            <h4 class="pannerrate">₹25</h4>
                             <div class="incdec">
                                 <button onclick="decrement(1)" class="decrementButton">-</button>
                                 <span id="value1" class="display">0</span>
@@ -420,8 +419,8 @@
 
                         <div class="statermenu">
                             <img src="./static/roti/butter_naan.jpg" class="panner">
-                            <h4 class="dishname">Butter Naan</h4>
-                            <h4 class="pannerrate">₹270</h4>
+                            <h4 class="dishname">ButterNaan</h4>
+                            <h4 class="pannerrate">₹45</h4>
                             <div class="incdec">
                                 <button onclick="decrement(2)" class="decrementButton">-</button>
                                 <span id="value2" class="display">0</span>
@@ -433,8 +432,8 @@
                     <div class="flex">
                         <div class="statermenu">
                             <img src="./static/roti/chur-chur-naan.jpg" class="panner">
-                            <h4 class="dishname">Chur Chur Naan</h4>
-                            <h4 class="pannerrate">₹280</h4>
+                            <h4 class="dishname">ChurChurNaan</h4>
+                            <h4 class="pannerrate">₹50</h4>
                             <div class="incdec">
                                 <button onclick="decrement(3)" class="decrementButton">-</button>
                                 <span id="value3" class="display">0</span>
@@ -444,8 +443,8 @@
 
                         <div class="statermenu">
                             <img src="./static/roti/lachha-paratha.png" class="panner">
-                            <h4 class="dishname">Lachha Paratha</h4>
-                            <h4 class="pannerrate">₹230</h4>
+                            <h4 class="dishname">LachhaParatha</h4>
+                            <h4 class="pannerrate">₹60</h4>
                             <div class="incdec">
                                 <button onclick="decrement(4)" class="decrementButton">-</button>
                                 <span id="value4" class="display">0</span>
@@ -457,8 +456,8 @@
                     <div class="flex">
                         <div class="statermenu">
                             <img src="./static/roti/kashmiri-paratha-2.png" class="panner">
-                            <h4 class="dishname">Kashmiri Paratha</h4>
-                            <h4 class="pannerrate">₹220</h4>
+                            <h4 class="dishname">KashmiriParatha</h4>
+                            <h4 class="pannerrate">₹65</h4>
                             <div class="incdec">
                                 <button onclick="decrement(5)" class="decrementButton">-</button>
                                 <span id="value5" class="display">0</span>
@@ -468,8 +467,8 @@
 
                         <div class="statermenu">
                             <img src="./static/roti/aloo-paratha.jpg" class="panner">
-                            <h4 class="dishname">Aloo Paratha</h4>
-                            <h4 class="pannerrate">₹310</h4>
+                            <h4 class="dishname">AlooParatha</h4>
+                            <h4 class="pannerrate">₹80</h4>
                             <div class="incdec">
                                 <button onclick="decrement(6)" class="decrementButton">-</button>
                                 <span id="value6" class="display">0</span>
@@ -502,7 +501,7 @@
                         <div class="flex">
                             <div class="statermenu">
                                 <div class="imagegaping"><img src="./static/sabji/palak-paneer.jpg" class="panner"></div>
-                                <h4 class="dishname">Palak Paneer</h4>
+                                <h4 class="dishname">PalakPaneer</h4>
                                 <h4 class="pannerrate">₹250</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(1)" class="decrementButton">-</button>
@@ -513,7 +512,7 @@
 
                             <div class="statermenu">
                                 <img src="./static/sabji/paneer-makhanwala.jpg" class="panner">
-                                <h4 class="dishname">Paneer Makhanwala</h4>
+                                <h4 class="dishname">PaneerMakhanwala</h4>
                                 <h4 class="pannerrate">₹270</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(2)" class="decrementButton">-</button>
@@ -526,7 +525,7 @@
                         <div class="flex">
                             <div class="statermenu">
                                 <img src="./static/sabji/paneercheese.jpg" class="panner">
-                                <h4 class="dishname">Paneer Cheese</h4>
+                                <h4 class="dishname">PaneerCheese</h4>
                                 <h4 class="pannerrate">₹280</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(3)" class="decrementButton">-</button>
@@ -537,7 +536,7 @@
 
                             <div class="statermenu">
                                 <img src="./static/sabji/paneerhandi.jpg" class="panner">
-                                <h4 class="dishname">Paneer Handi</h4>
+                                <h4 class="dishname">PaneerHandi</h4>
                                 <h4 class="pannerrate">₹230</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(4)" class="decrementButton">-</button>
@@ -550,7 +549,7 @@
                         <div class="flex">
                             <div class="statermenu">
                                 <img src="./static/sabji/paneer-butter-masala.png" class="panner">
-                                <h4 class="dishname">Paneer Butter Masala</h4>
+                                <h4 class="dishname">PaneerButterMasala</h4>
                                 <h4 class="pannerrate">₹220</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(5)" class="decrementButton">-</button>
@@ -561,7 +560,7 @@
 
                             <div class="statermenu">
                                 <img src="./static/sabji/sahi-paneer.png" class="panner">
-                                <h4 class="dishname">Shahi Paneer</h4>
+                                <h4 class="dishname">ShahiPaneer</h4>
                                 <h4 class="pannerrate">₹310</h4>
                                 <div class="incdec">
                                     <button onclick="decrement(6)" class="decrementButton">-</button>

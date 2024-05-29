@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="maindatainsert">
-        <div class="navbarmenu">
+    <div class="navbarmenu">
             <form action="./menu.php"><button class="left-arrow-button"><img src="./static/left-arrow.png" class="leftmenuicon"></button></form>
             <div class="selectedTableInfo">
                 <form action="./innermenu.php" method="post">
@@ -39,60 +39,48 @@
         </div>
             
         <?php  
-            $servername="localhost";
-            $username = "root";
-            $password = "";
-            $db = "dharmshah";
-
-            $conn = new mysqli($servername,$username,$password,$db);
-
-            $select_query = "SELECT * FROM orders";
-            $select_data = mysqli_query($conn,$select_query);
-            ?>
-            <table class="table" border="1">
+        $servername="localhost";
+        $username = "root";
+        $password = "";
+        $db = "dharmshah";
+        $conn = new mysqli($servername,$username,$password,$db);
+        $select_query = "SELECT * FROM orders";
+        $select_data = mysqli_query($conn,$select_query);
+        ?>
+        <table class="table" border="1">
+            <tr>
+                <td>Id</td>
+                <td>Dish Name</td>
+                <td>Quantity</td>
+            </tr>            
+            <?php while($row=mysqli_fetch_array($select_data)){?>
+                <?php if($row['quantity'] > 0) { ?>
                 <tr>
-                    <td>Dish Name</td>
-                    <td>Quantity</td>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['dish']; ?></td>
+                    <td><?php echo $row['quantity']; ?></td>
                 </tr>
-                
-                <?php while($row=mysqli_fetch_array($select_data)){?>
-                    <?php if($row['quantity'] > 0) { ?>
-                    <tr>
-                        <td><?php echo $row['dish']; ?></td>
-                        <td><?php echo $row['quantity']; ?></td>
-                    </tr>
-    <?php } ?>
-                <?php } ?>
-            </table>
-
-            <form action="menu.php" method="post">
-                    <input type="submit" name="billing" value="Back to order" class="buttencss1">
-            </form>
+            <?php } ?>
+            <?php } ?>
+        </table>
+        <form action="menu.php" method="post">
+                <input type="submit" name="billing" value="Order for Bill" class="buttencss1">
+        </form>
     </div>
-
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db = "dharmshah";
-
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $db);
-
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    // Loop through each dish and its quantity
     for ($i = 1; $i <= count($_POST) / 2; $i++) {
         $dish = $_POST["dish$i"];
         $quantity = $_POST["quantity$i"];
-
-        // Insert the data into the database
         $sql = "INSERT INTO orders (dish, quantity) VALUES ('$dish', '$quantity')";
         if (mysqli_query($conn, $sql)) {
             echo "";
@@ -100,9 +88,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
-} 
-
-// Close connection
+} else {
+    echo "Form submission failed.";
+}
 mysqli_close($conn);
 ?>
 </body>
