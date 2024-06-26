@@ -1,3 +1,23 @@
+<?php include 'cursor_magic.php'; ?>
+<?php
+        session_start();
+        if(isset($_SESSION['selected_table'])){
+            $selectedTable = $_SESSION['selected_table'];
+            echo "<h2>$selectedTable</h2>";
+        } else {
+            if(isset($_POST['table'])) 
+            {
+                
+                $selectedTable = $_POST['table'];
+                $_SESSION['selected_table'] = $selectedTable;
+                echo "<h2>$selectedTable</h2>";
+            }
+            else {
+                echo "<p>No table selected.</p>";
+            }
+        }
+        session_abort();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +39,7 @@
             echo "error";
         }
 
-        $sql = "TRUNCATE TABLE orders";
+        $sql = "TRUNCATE TABLE $selectedTable";
 
         if ($conn->query($sql) === TRUE) {
             echo "All rows deleted successfully";

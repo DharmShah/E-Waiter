@@ -48,20 +48,20 @@
             <img src="./static/biryani.png" class="iconfood">
         </div>
 
-        <form action="innermenu.php" method="post">
+        <!-- <form action="innermenu.php" method="post"> -->
             <div class="food-item-div1">
-                <div class="stater1"><img src="./static/starter/pizza.png" class="imagecut1"><h2 class="statername">Starter</h2><button type="submit" class="buttondrink" name="starter">Order</button></div>
-                <div class="stater2"><img src="./static/desert/ice-cream.jpeg" class="imagecut2"><h2 class="statername" name="icecream">Desert</h2><button name="icecream" class="buttondrink">Order</button></div>
-                <div class="stater3"><img src="./static/Drinks/drink.jpeg" class="imagecut3"><h2 class="staternamedrink">Drinks</h2><button class="buttondrink" name="drinks">Order</button></div>
+                <div class="stater1"><img src="./static/starter/pizza.png" class="imagecut1"><h2 class="statername">Starter</h2><a href="innermenu.php?cat=starter"><button type="submit" class="buttondrink" name="starter">Order</button></a></div>
+                <div class="stater2"><img src="./static/desert/ice-cream.jpeg" class="imagecut2"><h2 class="statername" name="icecream">Desert</h2><a href="innermenu.php?cat=desert"><button name="icecream" class="buttondrink">Order</button></a></div>
+                <div class="stater3"><img src="./static/Drinks/drink.jpeg" class="imagecut3"><h2 class="staternamedrink">Drinks</h2><a href="innermenu.php?cat=drinks"><button class="buttondrink" name="drinks">Order</button></a></div>
             </div>
 
             <div class="food-item-div2">
-                <div class="stater-1"><img src="./static/rice/dalrice.jpeg" class="imagecut-2"><h3 class="statername">Dal-Rice</h3><button class="buttondal" name="dalrice">Order</button></div>
-                <div class="stater-2"><img src="./static/roti/roti.jpeg" class="imagecut-3"><h2 class="statername">Roti</h2><button class="buttondal" name="roti">Order</button></div>
-                <div class="stater-3"><img src="./static/sabji/sabji.jpeg" class="imagecut4"><h2 class="statername">Sabji</h2><button class="buttondal" name="sajbi">Order</button></div>
+                <div class="stater-1"><img src="./static/rice/dalrice.jpeg" class="imagecut-2"><h3 class="statername">Dal-Rice</h3><a href="innermenu.php?cat=dal_rice"><button class="buttondal" name="dalrice">Order</button></a></div>
+                <div class="stater-2"><img src="./static/roti/roti.jpeg" class="imagecut-3"><h2 class="statername">Roti</h2><a href="innermenu.php?cat=roti"><button class="buttondal" name="roti">Order</button></a></div>
+                <div class="stater-3"><img src="./static/sabji/sabji.jpeg" class="imagecut4"><h2 class="statername">Sabji</h2><a href="innermenu.php?cat=sabji"><button class="buttondal" name="sajbi">Order</button></a></div>
             </div>
             
-        </form>
+        <!-- </form> -->
             <form action="billing.php" method="post">
                 <input type="submit" name="billing" value="Order for Bill" class="buttencss1">
             </form>

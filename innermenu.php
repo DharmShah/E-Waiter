@@ -15,7 +15,6 @@
             <form action="./menu.php" method="post">
                 <?php
                 session_start();
-
                 if(isset($_SESSION['selected_table'])){
                     $selectedTable = $_SESSION['selected_table'];
                     echo "<h2>$selectedTable</h2>";
@@ -26,558 +25,99 @@
             </form>
             </div>
         </nav>
-    
-        <?php 
-            if(isset($_POST['starter'])){ ?>
-                    <h2 class="stateh2">Starter Menu</h2>
+        <?php
+        $all_foods = array(
+            "starter" => array(
+                ["img"=>"./static/starter/manchaow-soup.jpeg","name" => "manchowsoup", "rate" => "120₹"],
+                ["img"=>"./static/starter/tomato-soup.jpeg","name" => "tomatosoup", "rate" => "110₹"],
+                ["img"=>"./static/starter/noodles.jpg","name" => "noodles", "rate" => "200₹"],
+                ["img"=>"./static/starter/veg-manchurian.jpg","name" => "manchuriyan", "rate" => "220₹"],
+                ["img"=>"./static/starter/panner-chapp.jpg","name" => "pannerchapp", "rate" => "150₹"],
+                ["img"=>"./static/starter/kabab.jpeg","name" => "kabab", "rate" => "220₹"]
+            ),
+            "desert" => array(
+                ["img"=>"./static/desert/cake1.png","name" => "cake", "rate" => "250₹"],
+                ["img"=>"./static/desert/sundae_Icecream.jpg","name" => "icecream", "rate" => "270₹"],
+                ["img"=>"./static/desert/kulfi.jpg","name" => "kulfi", "rate" => "280₹"],
+                ["img"=>"./static/desert/rabdi.jpg","name" => "rabdi", "rate" => "230₹"],
+                ["img"=>"./static/desert/jalebi.png","name" => "jalebi", "rate" => "220₹"],
+                ["img"=>"./static/desert/browni.jpg","name" => "browni", "rate" => "310₹"]
+            ),
+            "drinks" => array(
+                ["img"=>"./static/Drinks/butter-milk.jpg","name" => "buttermilk", "rate" => "40₹"],
+                ["img"=>"./static/Drinks/lassi.png","name" => "lassi", "rate" => "70₹"],
+                ["img"=>"./static/Drinks/coke.png","name" => "cocacola", "rate" => "120₹"],
+                ["img"=>"./static/Drinks/coldcoco.jpg","name" => "coldcoco", "rate" => "120₹"],
+                ["img"=>"./static/Drinks/sprite.jpeg","name" => "sprite", "rate" => "120₹"],
+                ["img"=>"./static/Drinks/pepsi.jpg","name" => "pepsi", "rate" => "120₹"]
+            ),
+            "dal_rice" => array(
+                ["img"=>"./static/rice/rice.jpg","name" => "rice", "rate" => "120₹"],
+                ["img"=>"./static/rice/jeera-rice.jpg","name" => "jeerarice", "rate" => "150₹"],
+                ["img"=>"./static/rice/pulav.jpg","name" => "pulav", "rate" => "180₹"],
+                ["img"=>"./static/rice/fried-rice.jpg","name" => "vegfriedrice", "rate" => "160₹"],
+                ["img"=>"./static/rice/dal_fry.jpg","name" => "dalfry", "rate" => "210₹"],
+                ["img"=>"./static/rice/dal-makhni.jpg","name" => "dalmakhni", "rate" => "210₹"]
+            ),
+            "roti" => array(
+                ["img"=>"./static/roti/butter_roti.jpg","name" => "butterroti", "rate" => "25₹"],
+                ["img"=>"./static/roti/butter_naan.jpg","name" => "butternaan", "rate" => "45₹"],
+                ["img"=>"./static/roti/chur-chur-naan.jpg","name" => "churchurnaan", "rate" => "50₹"],
+                ["img"=>"./static/roti/lachha-paratha.png","name" => "lachaparatha", "rate" => "60₹"],
+                ["img"=>"./static/roti/kashmiri-paratha-2.png","name" => "kashmiriparatha", "rate" => "65₹"],
+                ["img"=>"./static/roti/aloo-paratha.jpg","name" => "allooparatha", "rate" => "80₹"]
+            ),
+            "sabji" => array(
+                ["img"=>"./static/sabji/palak-paneer.jpg","name" => "palakpanner", "rate" => "250₹"],
+                ["img"=>"./static/sabji/paneer-makhanwala.jpg","name" => "pannermakhanwala", "rate" => "270₹"],
+                ["img"=>"./static/sabji/paneercheese.jpg","name" => "pannerchees", "rate" => "280₹"],
+                ["img"=>"./static/sabji/paneerhandi.jpg","name" => "pannerhandi", "rate" => "230₹"],
+                ["img"=>"./static/sabji/paneer-butter-masala.png","name" => "pannerbuttermasala", "rate" => "220₹"],
+                ["img"=>"./static/sabji/sahi-paneer.png","name" => "sahipanner", "rate" => "310₹"]
+            )
+        );
+        $currentcat =  $_GET["cat"]; ?>
+                <h2 class="stateh2"><?php echo $currentcat . " Menu"; ?></h2>
                 <div class="starter">
-                    <div class="flex">
-                        <div class="statermenu">
-                            <div class="imagegaping"><img src="./static/starter/manchaow-soup.jpeg" class="panner"></div>
-                            <h4 class="dishname" name="manchaow">ManchaowSoup</h4>
-                            <h4 class="pannerrate">₹120</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(1)" class="decrementButton">-</button>
-                                <span id="value1" class="display" name="span1">0</span>
-                                <button onclick="increment(1)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                        <div class="statermenu">
-                            <img src="./static/starter/tomato-soup.jpeg" class="panner">
-                            <h4 class="dishname" name="tomato" >TomatoSoup</h4>
-                            <h4 class="pannerrate">₹110</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(2)" class="decrementButton">-</button>
-                                <span id="value2" class="display" name="span2">0</span>
-                                <button onclick="increment(2)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="flex">
-                        <div class="statermenu">
-                            <img src="./static/starter/noodles.jpg" class="panner">
-                            <h4 class="dishname" name="noodles" >Noodles</h4>
-                            <h4 class="pannerrate">₹200</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(3)" class="decrementButton">-</button>
-                                <span id="value3" class="display" name="span3">0</span>
-                                <button onclick="increment(3)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                        <div class="statermenu">
-                            <img src="./static/starter/veg-manchurian.jpg" class="panner">
-                            <h4 class="dishname" name="manchurian" >Manchuriya</h4>
-                            <h4 class="pannerrate">₹220</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(4)" class="decrementButton">-</button>
-                                <span id="value4" class="display" name="span4">0</span>
-                                <button onclick="increment(4)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="flex">
-                        <div class="statermenu">
-                            <img src="./static/starter/panner-chapp.jpg" class="panner">
-                            <h4 class="dishname" name="pannerchapp" >PannerChapp </h4>
-                            <h4 class="pannerrate">₹150</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(5)" class="decrementButton">-</button>
-                                <span id="value5" class="display" name="span5">0</span>
-                                <button onclick="increment(5)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                        <div class="statermenu">
-                            <img src="./static/starter/kabab.jpeg" class="panner">
-                            <h4 class="dishname" name="kabab" >Kabab</h4>
-                            <h4 class="pannerrate">₹220</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(6)" class="decrementButton">-</button>
-                                <span id="value6" class="display" name="span6">0</span>
-                                <button onclick="increment(6)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <form id="orderForm" action="datainsert.php" method="post">
-                        <?php
-                            // Loop through each dish and its quantity
-                            for ($i = 1; $i <= count($_POST) / 2; $i++) {
-                                $dish = $_POST["dish$i"];
-                                $quantity = $_POST["quantity$i"];
-                                // Create hidden input fields for each dish and quantity
-                                echo "<input type='hidden' name='dish$i' value='$dish'>";
-                                echo "<input type='hidden' name='quantity$i' value='$quantity'>";
-                            }
-                            ?>
-                    </form> 
-                        <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
-                </div>
-            <?php }?>
-            <!-- Desertes starts from here -->
-            <?php 
-                if(isset($_POST['icecream'])){ ?>
-                    <h2 class="stateh2">Dessert Menu</h2>
-                    <div class="starter">
-                        <div class="flex">
-                            <div class="statermenu">
-                                <div class="imagegaping"><img src="./static/desert/cake1.png" class="panner"></div>
-                                <h4 class="dishname">Cake</h4>
-                                <h4 class="pannerrate">₹250</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(1)" class="decrementButton">-</button>
-                                    <span id="value1" class="display">0</span>
-                                    <button onclick="increment(1)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/desert/sundae_Icecream.jpg" class="panner">
-                                <h4 class="dishname">IceCream</h4>
-                                <h4 class="pannerrate">₹270</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(2)" class="decrementButton">-</button>
-                                    <span id="value2" class="display">0</span>
-                                    <button onclick="increment(2)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/desert/kulfi.jpg" class="panner">
-                                <h4 class="dishname">Kulfi</h4>
-                                <h4 class="pannerrate">₹280</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(3)" class="decrementButton">-</button>
-                                    <span id="value3" class="display">0</span>
-                                    <button onclick="increment(3)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/desert/rabdi.jpg" class="panner">
-                                <h4 class="dishname">Rabdi</h4>
-                                <h4 class="pannerrate">₹230</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(4)" class="decrementButton">-</button>
-                                    <span id="value4" class="display">0</span>
-                                    <button onclick="increment(4)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/desert/jalebi.png" class="panner">
-                                <h4 class="dishname">Jalebi</h4>
-                                <h4 class="pannerrate">₹220</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(5)" class="decrementButton">-</button>
-                                    <span id="value5" class="display">0</span>
-                                    <button onclick="increment(5)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/desert/browni.jpg" class="panner">
-                                <h4 class="dishname">Browni</h4>
-                                <h4 class="pannerrate">₹310</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(6)" class="decrementButton">-</button>
-                                    <span id="value6" class="display">0</span>
-                                    <button onclick="increment(6)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <form id="orderForm" action="datainsert.php" method="post">
-                        <?php
-                            // Loop through each dish and its quantity
-                            for ($i = 1; $i <= count($_POST) / 2; $i++) {
-                                $dish = $_POST["dish$i"];
-                                $quantity = $_POST["quantity$i"];
-                                // Create hidden input fields for each dish and quantity
-                                echo "<input type='hidden' name='dish$i' value='$dish'>";
-                                echo "<input type='hidden' name='quantity$i' value='$quantity'>";
-                            }
-                            ?>
-                    </form> 
-                        <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
-                </div>
-                <?php } ?>
-
-        <!-- Drinks starts from here -->
-        <?php 
-                if(isset($_POST['drinks'])){ ?>
-                    <h2 class="stateh2">Drinks Menu</h2>
-                    <div class="starter">
-                        <div class="flex">
-                            <div class="statermenu">
-                                <div class="imagegaping"><img src="./static/Drinks/butter-milk.jpg" class="panner"></div>
-                                <h4 class="dishname">ButterMilk</h4>
-                                <h4 class="pannerrate">₹40</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(1)" class="decrementButton">-</button>
-                                    <span id="value1" class="display">0</span>
-                                    <button onclick="increment(1)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/Drinks/lassi.png" class="panner">
-                                <h4 class="dishname">Lassi</h4>
-                                <h4 class="pannerrate">₹70</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(2)" class="decrementButton">-</button>
-                                    <span id="value2" class="display">0</span>
-                                    <button onclick="increment(2)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/Drinks/coke.png " class="panner">
-                                <h4 class="dishname">CocaCola</h4>
-                                <h4 class="pannerrate">₹120</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(3)" class="decrementButton">-</button>
-                                    <span id="value3" class="display">0</span>
-                                    <button onclick="increment(3)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/Drinks/coldcoco.jpg" class="panner">
-                                <h4 class="dishname">ColdCoco</h4>
-                                <h4 class="pannerrate">₹120</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(4)" class="decrementButton">-</button>
-                                    <span id="value4" class="display">0</span>
-                                    <button onclick="increment(4)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/Drinks/sprite.jpeg" class="panner">
-                                <h4 class="dishname">Sprite</h4>
-                                <h4 class="pannerrate">₹120</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(5)" class="decrementButton">-</button>
-                                    <span id="value5" class="display">0</span>
-                                    <button onclick="increment(5)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/Drinks/pepsi.jpg" class="panner">
-                                <h4 class="dishname">Pepsi</h4>
-                                <h4 class="pannerrate">₹120</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(6)" class="decrementButton">-</button>
-                                    <span id="value6" class="display">0</span>
-                                    <button onclick="increment(6)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <form id="orderForm" action="datainsert.php" method="post">
-                        <?php
-                            // Loop through each dish and its quantity
-                            for ($i = 1; $i <= count($_POST) / 2; $i++) {
-                                $dish = $_POST["dish$i"];
-                                $quantity = $_POST["quantity$i"];
-                                // Create hidden input fields for each dish and quantity
-                                echo "<input type='hidden' name='dish$i' value='$dish'>";
-                                echo "<input type='hidden' name='quantity$i' value='$quantity'>";
-                            }
-                            ?>
-                    </form> 
-                        <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
-                </div>
-                <?php } ?>
-                    
-        <!-- dil-rice starts from here -->
-        <?php 
-        if(isset($_POST['dalrice'])){ ?>
-            <h2 class="stateh2">Rice & Dal Menu</h2>
-            <div class="starter">
-                <div class="flex">
-                    <div class="statermenu">
-                        <div class="imagegaping"><img src="./static/rice/rice.jpg" class="panner"></div>
-                        <h4 class="dishname">Rice</h4>
-                        <h4 class="pannerrate">₹120</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(1)" class="decrementButton">-</button>
-                            <span id="value1" class="display">0</span>
-                            <button onclick="increment(1)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-
-                    <div class="statermenu">
-                        <img src="./static/rice/jeera-rice.jpg" class="panner">
-                        <h4 class="dishname">JeeraRice</h4>
-                        <h4 class="pannerrate">₹150</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(2)" class="decrementButton">-</button>
-                            <span id="value2" class="display">0</span>
-                            <button onclick="increment(2)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="flex">
-                    <div class="statermenu">
-                        <img src="./static/rice/pulav.jpg" class="panner">
-                        <h4 class="dishname">Pulav</h4>
-                        <h4 class="pannerrate">₹180</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(3)" class="decrementButton">-</button>
-                            <span id="value3" class="display">0</span>
-                            <button onclick="increment(3)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-
-                    <div class="statermenu">
-                        <img src="./static/rice/fried-rice.jpg" class="panner">
-                        <h4 class="dishname">VegFriedRice</h4>
-                        <h4 class="pannerrate">160</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(4)" class="decrementButton">-</button>
-                            <span id="value4" class="display">0</span>
-                            <button onclick="increment(4)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="flex">
-                    <div class="statermenu">
-                        <img src="./static/rice/dal_fry.jpg" class="panner">
-                        <h4 class="dishname">DalFry</h4>
-                        <h4 class="pannerrate">₹210</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(5)" class="decrementButton">-</button>
-                            <span id="value5" class="display">0</span>
-                            <button onclick="increment(5)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-
-                    <div class="statermenu">
-                        <img src="./static/rice/dal-makhni.jpg" class="panner">
-                        <h4 class="dishname">DalMakhni</h4>
-                        <h4 class="pannerrate">₹210</h4>
-                        <div class="incdec">
-                            <button onclick="decrement(6)" class="decrementButton">-</button>
-                            <span id="value6" class="display">0</span>
-                            <button onclick="increment(6)" class="incrementButton">+</button>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <form id="orderForm" action="datainsert.php" method="post">
-                <?php
-                    // Loop through each dish and its quantity
-                    for ($i = 1; $i <= count($_POST) / 2; $i++) {
-                        $dish = $_POST["dish$i"];
-                        $quantity = $_POST["quantity$i"];
-                        // Create hidden input fields for each dish and quantity
-                        echo "<input type='hidden' name='dish$i' value='$dish'>";
-                        echo "<input type='hidden' name='quantity$i' value='$quantity'>";
-                    }
+                    <?php 
+                    $counter = 0;
+                    $value = 1;
+                    for($i = 0;  $i < 3; $i++) {
                     ?>
-            </form> 
-                <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
-        </div>
-        <?php } ?>
-
-        <!-- Roti starts from here -->
-        <?php 
-            if(isset($_POST['roti'])){ ?>
-                <h2 class="stateh2">Roti Menu</h2>
-                <div class="starter">
                     <div class="flex">
                         <div class="statermenu">
-                            <div class="imagegaping"><img src="./static/roti/butter_roti.jpg" class="panner"></div>
-                            <h4 class="dishname">ButterRoti</h4>
-                            <h4 class="pannerrate">₹25</h4>
+                            <div class="imagegaping"><img src="<?php echo $all_foods[$currentcat][$counter]["img"]; ?>" class="panner"></div>
+                            <h4 class="dishname" name="manchaow"><?php echo $all_foods[$currentcat][$counter]["name"]; ?></h4>
+                            <h4 class="pannerrate"><?php echo $all_foods[$currentcat][$counter]["rate"]; ?></h4>
                             <div class="incdec">
-                                <button onclick="decrement(1)" class="decrementButton">-</button>
-                                <span id="value1" class="display">0</span>
-                                <button onclick="increment(1)" class="incrementButton">+</button>
+                                <button onclick="decrement(<?php echo $value ?>)" class="decrementButton">-</button>
+                                <span id="value<?php echo $value ?>" class="display" name="span1">0</span>
+                                <button onclick="increment(<?php echo $value ?>)" class="incrementButton">+</button>
                             </div>
                         </div>
-
+                        <?php $value++ ?>
+                        <?php $counter++ ?>
                         <div class="statermenu">
-                            <img src="./static/roti/butter_naan.jpg" class="panner">
-                            <h4 class="dishname">ButterNaan</h4>
-                            <h4 class="pannerrate">₹45</h4>
+                            <img src="<?php echo $all_foods[$currentcat][$counter]["img"]; ?>" class="panner">
+                            <h4 class="dishname" name="tomato" ><?php echo $all_foods[$currentcat][$counter]["name"]; ?></h4>
+                            <h4 class="pannerrate"><?php echo $all_foods[$currentcat][$counter]["rate"]; ?></h4>
                             <div class="incdec">
-                                <button onclick="decrement(2)" class="decrementButton">-</button>
-                                <span id="value2" class="display">0</span>
-                                <button onclick="increment(2)" class="incrementButton">+</button>
+                                <button onclick="decrement(<?php echo $value ?>)" class="decrementButton">-</button>
+                                <span id="value<?php echo $value ?>" class="display" name="span2">0</span>
+                                <button onclick="increment(<?php echo $value ?>)" class="incrementButton">+</button>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="flex">
-                        <div class="statermenu">
-                            <img src="./static/roti/chur-chur-naan.jpg" class="panner">
-                            <h4 class="dishname">ChurChurNaan</h4>
-                            <h4 class="pannerrate">₹50</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(3)" class="decrementButton">-</button>
-                                <span id="value3" class="display">0</span>
-                                <button onclick="increment(3)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                        <div class="statermenu">
-                            <img src="./static/roti/lachha-paratha.png" class="panner">
-                            <h4 class="dishname">LachhaParatha</h4>
-                            <h4 class="pannerrate">₹60</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(4)" class="decrementButton">-</button>
-                                <span id="value4" class="display">0</span>
-                                <button onclick="increment(4)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="flex">
-                        <div class="statermenu">
-                            <img src="./static/roti/kashmiri-paratha-2.png" class="panner">
-                            <h4 class="dishname">KashmiriParatha</h4>
-                            <h4 class="pannerrate">₹65</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(5)" class="decrementButton">-</button>
-                                <span id="value5" class="display">0</span>
-                                <button onclick="increment(5)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                        <div class="statermenu">
-                            <img src="./static/roti/aloo-paratha.jpg" class="panner">
-                            <h4 class="dishname">AlooParatha</h4>
-                            <h4 class="pannerrate">₹80</h4>
-                            <div class="incdec">
-                                <button onclick="decrement(6)" class="decrementButton">-</button>
-                                <span id="value6" class="display">0</span>
-                                <button onclick="increment(6)" class="incrementButton">+</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <form id="orderForm" action="datainsert.php" method="post">
-                        <?php
-                            // Loop through each dish and its quantity
-                            for ($i = 1; $i <= count($_POST) / 2; $i++) {
-                                $dish = $_POST["dish$i"];
-                                $quantity = $_POST["quantity$i"];
-                                // Create hidden input fields for each dish and quantity
-                                echo "<input type='hidden' name='dish$i' value='$dish'>";
-                                echo "<input type='hidden' name='quantity$i' value='$quantity'>";
-                            }
-                            ?>
-                </form> 
-                        <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
-            </div>
-            <?php } ?>
-        <!-- sabji starts from here -->
-            <?php 
-                if(isset($_POST['sajbi'])){?>
-                    <h2 class="stateh2">Sabji Menu</h2>
-                    <div class="starter">
-                        <div class="flex">
-                            <div class="statermenu">
-                                <div class="imagegaping"><img src="./static/sabji/palak-paneer.jpg" class="panner"></div>
-                                <h4 class="dishname">PalakPaneer</h4>
-                                <h4 class="pannerrate">₹250</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(1)" class="decrementButton">-</button>
-                                    <span id="value1" class="display">0</span>
-                                    <button onclick="increment(1)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/sabji/paneer-makhanwala.jpg" class="panner">
-                                <h4 class="dishname">PaneerMakhanwala</h4>
-                                <h4 class="pannerrate">₹270</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(2)" class="decrementButton">-</button>
-                                    <span id="value2" class="display">0</span>
-                                    <button onclick="increment(2)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/sabji/paneercheese.jpg" class="panner">
-                                <h4 class="dishname">PaneerCheese</h4>
-                                <h4 class="pannerrate">₹280</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(3)" class="decrementButton">-</button>
-                                    <span id="value3" class="display">0</span>
-                                    <button onclick="increment(3)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/sabji/paneerhandi.jpg" class="panner">
-                                <h4 class="dishname">PaneerHandi</h4>
-                                <h4 class="pannerrate">₹230</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(4)" class="decrementButton">-</button>
-                                    <span id="value4" class="display">0</span>
-                                    <button onclick="increment(4)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flex">
-                            <div class="statermenu">
-                                <img src="./static/sabji/paneer-butter-masala.png" class="panner">
-                                <h4 class="dishname">PaneerButterMasala</h4>
-                                <h4 class="pannerrate">₹220</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(5)" class="decrementButton">-</button>
-                                    <span id="value5" class="display">0</span>
-                                    <button onclick="increment(5)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
-                            <div class="statermenu">
-                                <img src="./static/sabji/sahi-paneer.png" class="panner">
-                                <h4 class="dishname">ShahiPaneer</h4>
-                                <h4 class="pannerrate">₹310</h4>
-                                <div class="incdec">
-                                    <button onclick="decrement(6)" class="decrementButton">-</button>
-                                    <span id="value6" class="display">0</span>
-                                    <button onclick="increment(6)" class="incrementButton">+</button>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <?php
+                    $counter++;
+                    $value++;
+                    }
+                    ?>         
                     <form id="orderForm" action="datainsert.php" method="post">
                         <?php
-                            // Loop through each dish and its quantity
                             for ($i = 1; $i <= count($_POST) / 2; $i++) {
                                 $dish = $_POST["dish$i"];
                                 $quantity = $_POST["quantity$i"];
-                                // Create hidden input fields for each dish and quantity
                                 echo "<input type='hidden' name='dish$i' value='$dish'>";
                                 echo "<input type='hidden' name='quantity$i' value='$quantity'>";
                             }
@@ -585,11 +125,7 @@
                     </form> 
                         <button onclick="prepareFormDataAndSubmit()" type="submit" name="datainsert" value="Place Order" class="buttencss" >Place Order</button>
                 </div>
-            <?php } ?>
-        </div>
-        
     <script>
-
         function increment(index) 
         {
                 var valueElement = document.getElementById('value' + index);
@@ -604,30 +140,23 @@
             valueElement.textContent = value - 1;
             }
         }
-
         function prepareFormDataAndSubmit() {
             var form = document.getElementById('orderForm');
             var dishes = document.querySelectorAll('.statermenu');
-
             dishes.forEach(function(dish, index) {
                 var dishName = dish.querySelector('.dishname').textContent;
                 var quantity = dish.querySelector('.display').textContent;
-
-                // Create hidden input fields for each dish and quantity
                 var inputName = document.createElement('input');
                 inputName.type = 'hidden';
                 inputName.name = 'dish' + (index + 1);
                 inputName.value = dishName;
                 form.appendChild(inputName);
-
                 var inputQuantity = document.createElement('input');
                 inputQuantity.type = 'hidden';
                 inputQuantity.name = 'quantity' + (index + 1);
                 inputQuantity.value = quantity;
                 form.appendChild(inputQuantity);
             });
-
-            // Submit the form
             form.submit();
         }
     </script>

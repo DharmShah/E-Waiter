@@ -1,3 +1,23 @@
+<?php include 'database.php'; ?>
+<?php
+    session_start();
+    if(isset($_SESSION['selected_table'])){
+        $selectedTable = $_SESSION['selected_table'];
+        echo "<h2>$selectedTable</h2>";
+    } else {
+        if(isset($_POST['table'])) 
+        {
+            
+            $selectedTable = $_POST['table'];
+            $_SESSION['selected_table'] = $selectedTable;
+            echo "<h2>$selectedTable</h2>";
+        }
+        else {
+            echo "<p>No table selected.</p>";
+        }
+    }
+    session_abort();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,22 +43,7 @@
             <h2>INVOICE</h2>
             <div class="table_print">
             <?php
-            // Connect to the database
-            $servername = "localhost";
-            $username = "root"; // Your MySQL username
-            $password = ""; // Your MySQL password
-            $dbname = "dharmshah";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Retrieve data from orders table
-            $sql = "SELECT dish, quantity FROM orders";
+            $sql = "SELECT dish, quantity FROM $selectedTable";
             $result = $conn->query($sql);
 
             // Initialize variables for total calculation
@@ -82,7 +87,7 @@
                 echo "<tr><td colspan='3'>Total Bill</td><td>$total</td></tr>";
                 echo "</table>";
             } else {
-                echo "0 results";
+                echo "Order Karo na Bhau!!!!";
             }
 
             // Close connection
@@ -91,8 +96,26 @@
             </div>
         </div>
         <div class="cleartable">
-            <form action="cleartable.php" method="post" ><input type="submit" name="cleartable" value="Clear Table"></form>
+            <form action="cleartable.php" method="post" ><input type="submit" name="cleartable" id="cleartable" onclick="clearLocalStorage('<?php echo $selectedTable; ?>')" value="Clear Table"></form>
         </div>
+            
     </div>
+    <script>
+
+function clearLocalStorage(selectedTable) {
+            var result = selectedTable.slice(5); 
+            // Check if the selected table matches the data in local storage
+            var tableData = localStorage.getItem(result);
+            if (tableData !== null) {
+                // If matched, remove the data from local storage
+                localStorage.removeItem(result);
+                alert("Data for " + result + " has been cleared.");
+            } else {
+                // If not matched, display a message
+                alert("No data found for " + result);
+            }
+        }
+
+    </script>
 </body>
 </html>
